@@ -475,19 +475,27 @@ init();
 loop();
 
 // Form
-function handleSubmit() {
+async function handleSubmit() {
   const input = document.getElementById('emailInput');
   const msg   = document.getElementById('successMsg');
   const email = input.value.trim();
+  
   if (!email || !email.includes('@')) {
-    input.style.borderColor = 'rgba(196,149,106,0.6)';
     input.focus();
     return;
   }
+
+  // URL de tu Google Apps Script
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwC1ep7MwGUUhk8TQ2MwHOwz2ZPAxZ-h4ZyOclugTqgkEMNKXPiFQ3Hd95CiXUQC6Ro/exec';
+  
+  await fetch(SCRIPT_URL, {
+    method: 'POST',
+    body: JSON.stringify({ email }),
+  });
+
   input.value = '';
   input.placeholder = 'Listo ✓';
   msg.style.display = 'block';
-  setTimeout(() => msg.style.display = 'none', 5000);
 }
 
 document.getElementById('emailInput').addEventListener('keydown', e => {
