@@ -322,12 +322,23 @@ footer {
 
 <!-- NAV -->
 <nav>
-<a href="#" class="nav-brand">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 32px; height: 32px;">
-      <path d="M12 3L2 12H5V20H19V12H22L12 3Z" fill="#F5793B"/>
-    </svg>
-    <span class="nav-wordmark" style="display:block;">STAYVO</span>
+  <a href="#" class="nav-brand">
+    <!--
+      LOGO: Reemplazá el src con la URL de tu logo.
+      Opciones:
+        1. Subilo a /images/logo.png en el repo y usá src="images/logo.png"
+        2. Usá la URL directa de la imagen en tu Google Drive o Cloudinary
+    -->
+    <img
+      src="images/logo.png"
+      alt="Stayvo"
+      class="nav-logo-img"
+      onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+    >
+    <span class="nav-wordmark" style="display:none;">STAYVO</span>
   </a>
+  <a href="#registro" class="nav-cta">Acceso Beta →</a>
+</nav>
 
 <!-- HERO -->
 <section class="hero">
